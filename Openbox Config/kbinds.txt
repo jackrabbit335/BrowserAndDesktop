@@ -1,0 +1,123 @@
+2020-08-24	rc.xml KEYBINDS
+-------------------------------
+
+ 0	W-S-r           	openbox --reconfigure
+ 1	W-KP_1          	UnmaximizeFull
+ 2	W-KP_2          	UnmaximizeFull
+ 3	W-KP_3          	UnmaximizeFull
+ 4	W-KP_4          	UnmaximizeFull
+ 5	W-KP_5          	MaximizeFull
+ 6	W-KP_6          	UnmaximizeFull
+ 7	W-KP_7          	UnmaximizeFull
+ 8	W-KP_8          	UnmaximizeFull
+ 9	W-KP_9          	UnmaximizeFull
+10	C-A-Right       	DesktopRight
+11	C-A-Left        	GoToDesktop
+12	C-A-Up          	GoToDesktop
+13	C-A-Down        	GoToDesktop
+14	A-Tab           	NextWindow
+15	A-S-Tab         	PreviousWindow
+16	W-S-Right       	DirectionalCycleWindows
+17	W-S-Left        	DirectionalCycleWindows
+18	W-S-Up          	DirectionalCycleWindows
+19	W-S-Down        	DirectionalCycleWindows
+20	S-A-Left        	SendToDesktopLeft
+21	S-A-Right       	SendToDesktopRight
+22	S-A-Up          	SendToDesktopUp
+23	S-A-Down        	SendToDesktopDown
+24	A-Escape        	Lower
+25	A-space         	client-menu
+26	XF86AudioStop   	playerctl pause
+27	XF86AudioPlay   	playerctl play-pause
+28	XF86AudioPrev   	playerctl previous
+29	XF86AudioNext   	playerctl next
+30	XF86MonBrightnessUp	xbacklight +10
+31	XF86MonBrightnessDown	xbacklight -10
+32	Print           	scrot 'ArcoLinux_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES)'
+33	A-Print         	scrot -d 5 'ArcoLinux_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICT.....
+34	C-Print         	xfce4-screenshooter
+35	A-F2            	gmrun
+36	A-F3            	xfce4-appfinder
+37	W-S-d           	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'N.....
+38	A-F4            	Close
+39	A-F5            	Iconify
+40	A-F6            	ToggleMaximize
+41	A-F8            	ToggleDecorations
+42	W-d             	ToggleShowDesktop
+43	W-b             	ToggleDecorations
+44	W-f             	exo-open --launch FileManager
+45	W-t             	urxvt
+46	W-c             	conky-toggle
+47	C-A-Return      	exo-open --launch TerminalEmulator
+48	W-w             	exo-open --launch WebBrowser
+49	C-A-k           	arcolinux-logout
+50	C-A-l           	arcolinux-logout
+51	W-e             	geany
+52	W-m             	pragha
+53	W-h             	urxvt -T 'htop task manager' -e htop
+54	W-v             	pavucontrol
+55	C-A-u           	pavucontrol
+56	W-x             	arcolinux-logout
+57	W-Escape        	xkill
+58	W-Tab           	client-list-combined-menu
+59	W-space         	root-menu
+60	W-Right         	UnmaximizeFull
+61	W-Left          	UnmaximizeFull
+62	W-Up            	MaximizeFull
+63	W-Down          	UnmaximizeFull
+64	W-A-Left        	UnmaximizeFull
+65	W-A-Right       	UnmaximizeFull
+66	A-r             	Resize
+67	A-m             	Move
+68	A-t             	variety -t
+69	A-f             	variety -f
+70	A-p             	variety -p
+71	A-Left          	variety -p
+72	A-n             	variety -n
+73	A-Right         	variety -n
+74	A-Down          	variety --resume
+75	A-Up            	variety --pause
+76	S-W-q           	Close
+77	W-q             	Close
+78	W-Return        	termite
+79	S-W-Return      	thunar
+80	W-F1            	exo-open --launch webbrowser
+81	W-F2            	subl3
+82	W-F3            	inkscape
+83	W-F4            	gimp
+84	W-F5            	meld
+85	W-F6            	vlc
+86	W-F7            	virtualbox
+87	W-F8            	thunar
+88	W-F9            	evolution
+89	W-F10           	spotify
+90	W-F11           	rofi -show run -fullscreen -font "Noto Sans 13"
+91	W-F12           	rofi -show run -font "Noto Sans 13"
+92	C-S-Escape      	xfce4-taskmanager
+93	C-A-q           	root-menu
+94	C-A-m           	xfce4-settings-manager
+95	C-A-r           	rofi-theme-selector
+96	C-A-j           	obmenu3
+97	W-k             	obkey
+98	C-A-a           	xfce4-appfinder
+99	C-A-T           	termite
+100	C-A-d           	ToggleShowDesktop
+101	C-A-V           	vivaldi-stable
+102	C-A-B           	thunar
+103	C-A-W           	arcolinux-welcome-app
+104	C-A-E           	arcolinux-tweak-tool
+105	C-A-S           	spotify
+106	C-A-C           	catfish
+107	C-A-i           	nitrogen
+108	C-A-o           	sh ~/.config/openbox/scripts/picom-toggle.sh
+109	C-A-y           	obconf
+110	C-A-F           	firefox
+111	C-A-G           	chromium
+112	C-A-p           	pamac-manager
+113	C-A-KP_8        	conky-rotate -n
+114	C-A-KP_2        	conky-rotate -p
+115	C-A-KP_Next     	conky-rotate -n
+116	C-A-KP_Prior    	conky-rotate -p
+117	C-A-Next        	conky-rotate -n
+118	C-A-Prior       	conky-rotate -p
+119	A-S-space       	root-menu
