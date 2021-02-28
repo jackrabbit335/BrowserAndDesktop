@@ -45,7 +45,7 @@ c.content.cookies.accept = 'no-3rdparty'
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
+config.set('content.cookies.accept', 'no-3rdparty', 'chrome-devtools://*')
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -62,7 +62,7 @@ config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set('content.cookies.accept', 'all', 'devtools://*')
+config.set('content.cookies.accept', 'no-3rdparty', 'devtools://*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -178,6 +178,16 @@ config.set('content.notifications', False, 'https://www.reddit.com')
 config.set('content.notifications', False, 'https://www.youtube.com')
 config.set('content.notifications', False, 'https://www.facebook.com')
 
+#Set Download Location
+#c.downloads.location.directory = '/home/$USER/Downloads'
+
+#When to show tabs
+# - Always(Default)
+# - Never
+# - Multiple(Shows only when multiple tabs are open)
+# - Switching(When switching only)
+c.tabs.show = 'multiple'
+
 # Padding (in pixels) around text for tabs.
 # Type: Padding
 c.tabs.padding = {'bottom': 0, 'left': 5, 'right': 5, 'top': 9}
@@ -188,7 +198,7 @@ c.tabs.padding = {'bottom': 0, 'left': 5, 'right': 5, 'top': 9}
 #   - left
 #   - right
 #   - center
-c.tabs.title.alignment = 'left'
+c.tabs.title.alignment = 'center'
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
@@ -238,5 +248,5 @@ c.colors.webpage.darkmode.enabled = True
 # Bindings for normal mode
 config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
 
-#Uses youtube-dl to download content from site... Got this one from Derek Taylor's config on gitlab'
+#Uses youtube-dl to download content from site... Got this one from Derek Taylor's config on gitlab but changed the shortcut
 config.bind('<Ctrl+shift+z>', 'hint links spawn st -e youtube-dl {hint-url}')
