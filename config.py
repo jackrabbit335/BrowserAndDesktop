@@ -11,7 +11,7 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-config.load_autoconfig()
+config.load_autoconfig(false)
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -174,9 +174,6 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', False, 'https://www.reddit.com')
-config.set('content.notifications', False, 'https://www.youtube.com')
-config.set('content.notifications', False, 'https://www.facebook.com')
 
 #Set Download Location
 #c.downloads.location.directory = '/home/$USER/Downloads'
