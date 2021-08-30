@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=LibreWolf
+Comment=LibreWolf Web Browser
+Keywords=Internet;WWW;Browser;Web;Explorer
+Exec=librewolf %u
+Terminal=false
+Type=Application
+Icon=
+Categories=Application;Network;WebBrowser;Internet;
+StartupNotify=true
