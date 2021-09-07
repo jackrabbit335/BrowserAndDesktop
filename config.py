@@ -13,6 +13,11 @@
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
 
+# Allow websites to read canvas elements. Note this is needed for some
+# websites to work properly.
+# Type: Bool
+c.content.canvas_reading = False
+
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
 # including IndexedDB, DOM storage, filesystem API, service workers, and
@@ -21,14 +26,7 @@ config.load_autoconfig(False)
 # unknown-3rdparty` per-domain on QtWebKit will have the same effect as
 # `all`. If this setting is used with URL patterns, the pattern gets
 # applied to the origin/first party URL of the page making the request,
-# not the request URL. With QtWebEngine 5.15.0+, paths will be stripped
-# from URLs, so URL patterns using paths will not match. With
-# QtWebEngine 5.15.2+, subdomains are additionally stripped as well, so
-# you will typically need to set this setting for `example.com` when the
-# cookie is set on `somesubdomain.example.com` for it to work properly.
-# To debug issues with this setting, start qutebrowser with `--debug
-# --logfilter network --debug-flag log-cookies` which will show all
-# cookies being set.
+# not the request URL.
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
@@ -45,14 +43,7 @@ c.content.cookies.accept = 'no-3rdparty'
 # unknown-3rdparty` per-domain on QtWebKit will have the same effect as
 # `all`. If this setting is used with URL patterns, the pattern gets
 # applied to the origin/first party URL of the page making the request,
-# not the request URL. With QtWebEngine 5.15.0+, paths will be stripped
-# from URLs, so URL patterns using paths will not match. With
-# QtWebEngine 5.15.2+, subdomains are additionally stripped as well, so
-# you will typically need to set this setting for `example.com` when the
-# cookie is set on `somesubdomain.example.com` for it to work properly.
-# To debug issues with this setting, start qutebrowser with `--debug
-# --logfilter network --debug-flag log-cookies` which will show all
-# cookies being set.
+# not the request URL.
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
@@ -69,14 +60,7 @@ config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 # unknown-3rdparty` per-domain on QtWebKit will have the same effect as
 # `all`. If this setting is used with URL patterns, the pattern gets
 # applied to the origin/first party URL of the page making the request,
-# not the request URL. With QtWebEngine 5.15.0+, paths will be stripped
-# from URLs, so URL patterns using paths will not match. With
-# QtWebEngine 5.15.2+, subdomains are additionally stripped as well, so
-# you will typically need to set this setting for `example.com` when the
-# cookie is set on `somesubdomain.example.com` for it to work properly.
-# To debug issues with this setting, start qutebrowser with `--debug
-# --logfilter network --debug-flag log-cookies` which will show all
-# cookies being set.
+# not the request URL.
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
@@ -152,7 +136,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version} Edg/{upstream_browser_version}', 'https://accounts.google.com/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -213,55 +197,11 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', False, 'https://0.smartklick.biz')
+c.content.notifications = False
 
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications.enabled', False, 'https://1.smartklick.biz')
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications.enabled', False, 'https://smartklick.biz')
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications.enabled', False, 'https://www.facebook.com')
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications.enabled', False, 'https://www.reddit.com')
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set('content.notifications.enabled', False, 'https://www.youtube.com')
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-c.content.notifications.enabled = False
+# List of user stylesheet filenames to use.
+# Type: List of File, or File
+c.content.user_stylesheets = '/home/sirius/Downloads/solarized-everything-css-master/themes/solarized/dark.styl'
 
 # Padding (in pixels) around text for tabs.
 # Type: Padding
@@ -328,6 +268,40 @@ c.colors.tabs.selected.even.bg = 'red'
 # selective inversion of everything": Combines the two variants   above.
 # Type: Bool
 c.colors.webpage.darkmode.enabled = True
+
+# Which algorithm to use for modifying how colors are rendered with
+# darkmode. The `lightness-cielab` value was added with QtWebEngine 5.14
+# and is treated like `lightness-hsl` with older QtWebEngine versions.
+# Type: String
+# Valid values:
+#   - lightness-cielab: Modify colors by converting them to CIELAB color space and inverting the L value. Not available with Qt < 5.14.
+#   - lightness-hsl: Modify colors by converting them to the HSL color space and inverting the lightness (i.e. the "L" in HSL).
+#   - brightness-rgb: Modify colors by subtracting each of r, g, and b from their maximum value.
+c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
+
+# Which images to apply dark mode to. With QtWebEngine 5.15.0, this
+# setting can cause frequent renderer process crashes due to a
+# https://codereview.qt-project.org/c/qt/qtwebengine-
+# chromium/+/304211[bug in Qt].
+# Type: String
+# Valid values:
+#   - always: Apply dark mode filter to all images.
+#   - never: Never apply dark mode filter to any images.
+#   - smart: Apply dark mode based on image content. Not available with Qt 5.15.0.
+c.colors.webpage.darkmode.policy.images = 'smart'
+
+# Which pages to apply dark mode to.
+# Type: String
+# Valid values:
+#   - always: Apply dark mode filter to all frames, regardless of content.
+#   - smart: Apply dark mode filter to frames based on background color.
+c.colors.webpage.darkmode.policy.page = 'smart'
+
+# Render all colors as grayscale. This only has an effect when
+# `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
+# `brightness-rgb`.
+# Type: Bool
+c.colors.webpage.darkmode.grayscale.all = False
 
 # Bindings for normal mode
 config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
