@@ -165,7 +165,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/53
 #   - adblock: Use Brave's ABP-style adblocker
 #   - hosts: Use hosts blocking
 #   - both: Use both hosts blocking and Brave's ABP-style adblocker
-c.content.blocking.method = 'both'
+#c.content.blocking.method = 'both'
 
 # Load images automatically in web pages.
 # Type: Bool
@@ -197,11 +197,11 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-c.content.notifications = False
+#c.content.notifications = False
 
 # List of user stylesheet filenames to use.
 # Type: List of File, or File
-c.content.user_stylesheets = '/home/sirius/Downloads/solarized-everything-css-master/themes/solarized/dark.styl'
+#c.content.user_stylesheets = ''
 
 # Padding (in pixels) around text for tabs.
 # Type: Padding
@@ -267,7 +267,7 @@ c.colors.tabs.selected.even.bg = 'red'
 # `colors.webpage.darkmode.threshold.background` to 205.  - "With
 # selective inversion of everything": Combines the two variants   above.
 # Type: Bool
-c.colors.webpage.darkmode.enabled = True
+#c.colors.webpage.darkmode.enabled = True
 
 # Which algorithm to use for modifying how colors are rendered with
 # darkmode. The `lightness-cielab` value was added with QtWebEngine 5.14
