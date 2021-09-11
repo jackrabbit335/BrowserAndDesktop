@@ -10,8 +10,8 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
-# Change the argument to True to still load settings configured via autoconfig.yml
-config.load_autoconfig(False)
+# Uncomment this to still load settings configured via autoconfig.yml
+# config.load_autoconfig()
 
 # Allow websites to read canvas elements. Note this is needed for some
 # websites to work properly.
@@ -203,106 +203,11 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Type: List of File, or File
 #c.content.user_stylesheets = ''
 
-# Padding (in pixels) around text for tabs.
-# Type: Padding
-c.tabs.padding = {'bottom': 0, 'left': 5, 'right': 5, 'top': 9}
-
-# When to show the tab bar.
-# Type: String
-# Valid values:
-#   - always: Always show the tab bar.
-#   - never: Always hide the tab bar.
-#   - multiple: Hide the tab bar if only one tab is open.
-#   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'multiple'
-
-# Alignment of the text inside of tabs.
-# Type: TextAlignment
-# Valid values:
-#   - left
-#   - right
-#   - center
-c.tabs.title.alignment = 'center'
-
-# Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
-# for a blank page.
-# Type: FuzzyUrl
-c.url.default_page = 'https://start.duckduckgo.com'
-
-# Page(s) to open at the start.
-# Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'https://start.duckduckgo.com'
-
-# Background color of the tab bar.
-# Type: QssColor
-c.colors.tabs.bar.bg = '#555555'
-
-# Foreground color of unselected odd tabs.
-# Type: QtColor
-c.colors.tabs.odd.fg = 'yellow'
-
-# Background color of unselected odd tabs.
-# Type: QtColor
-c.colors.tabs.odd.bg = 'green'
-
-# Foreground color of unselected even tabs.
-# Type: QtColor
-c.colors.tabs.even.fg = 'white'
-
-# Background color of unselected even tabs.
-# Type: QtColor
-c.colors.tabs.even.bg = 'darkgrey'
-
-# Background color of selected even tabs.
-# Type: QtColor
-c.colors.tabs.selected.even.bg = 'red'
-
-# Render all web contents using a dark theme. Example configurations
-# from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
-# inversion": Set   `colors.webpage.darkmode.algorithm` accordingly.  -
-# "With selective image inversion": Set
-# `colors.webpage.darkmode.policy.images` to `smart`.  - "With selective
-# inversion of non-image elements": Set
-# `colors.webpage.darkmode.threshold.text` to 150 and
-# `colors.webpage.darkmode.threshold.background` to 205.  - "With
-# selective inversion of everything": Combines the two variants   above.
+# Enable WebGL.
 # Type: Bool
-#c.colors.webpage.darkmode.enabled = True
+c.content.webgl = True
 
-# Which algorithm to use for modifying how colors are rendered with
-# darkmode. The `lightness-cielab` value was added with QtWebEngine 5.14
-# and is treated like `lightness-hsl` with older QtWebEngine versions.
-# Type: String
-# Valid values:
-#   - lightness-cielab: Modify colors by converting them to CIELAB color space and inverting the L value. Not available with Qt < 5.14.
-#   - lightness-hsl: Modify colors by converting them to the HSL color space and inverting the lightness (i.e. the "L" in HSL).
-#   - brightness-rgb: Modify colors by subtracting each of r, g, and b from their maximum value.
-c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
-
-# Which images to apply dark mode to. With QtWebEngine 5.15.0, this
-# setting can cause frequent renderer process crashes due to a
-# https://codereview.qt-project.org/c/qt/qtwebengine-
-# chromium/+/304211[bug in Qt].
-# Type: String
-# Valid values:
-#   - always: Apply dark mode filter to all images.
-#   - never: Never apply dark mode filter to any images.
-#   - smart: Apply dark mode based on image content. Not available with Qt 5.15.0.
-c.colors.webpage.darkmode.policy.images = 'smart'
-
-# Which pages to apply dark mode to.
-# Type: String
-# Valid values:
-#   - always: Apply dark mode filter to all frames, regardless of content.
-#   - smart: Apply dark mode filter to frames based on background color.
-c.colors.webpage.darkmode.policy.page = 'smart'
-
-# Render all colors as grayscale. This only has an effect when
-# `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
-# `brightness-rgb`.
-# Type: Bool
-c.colors.webpage.darkmode.grayscale.all = False
-
-# Bindings for normal mode
-config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
-config.bind('<Ctrl+Shift+z>', 'hint links spawn st -e youtube-dl {hint-url}')
+# Directory to save downloads to. If unset, a sensible OS-specific
+# default is used.
+# Type: Directory
+c.downloads.location.directory = '/home/sirius/Downloads/'
