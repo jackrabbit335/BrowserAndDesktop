@@ -11,7 +11,7 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+#config.load_autoconfig()
 
 # Allow websites to read canvas elements. Note this is needed for some
 # websites to work properly.
@@ -211,3 +211,54 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # default is used.
 # Type: Directory
 #c.downloads.location.directory = '/home/$USER/Downloads/'
+
+# Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
+# for a blank page.
+# Type: FuzzyUrl
+c.url.default_page = 'https://start.duckduckgo.com'
+
+# Page(s) to open at the start.
+# Type: List of FuzzyUrl, or FuzzyUrl
+c.url.start_pages = 'https://start.duckduckgo.com'
+
+# Background color of the tab bar.
+# Type: QssColor
+#c.colors.tabs.bar.bg = '#555555'
+
+# Foreground color of unselected odd tabs.
+# Type: QtColor
+#c.colors.tabs.odd.fg = 'yellow'
+
+# Background color of unselected odd tabs.
+# Type: QtColor
+#c.colors.tabs.odd.bg = 'green'
+
+# Foreground color of unselected even tabs.
+# Type: QtColor
+#c.colors.tabs.even.fg = 'white'
+
+# Background color of unselected even tabs.
+# Type: QtColor
+#c.colors.tabs.even.bg = 'darkgrey'
+
+# Background color of selected even tabs.
+# Type: QtColor
+#c.colors.tabs.selected.even.bg = 'red'
+
+# Render all web contents using a dark theme. Example configurations
+# from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
+# inversion": Set   `colors.webpage.darkmode.algorithm` accordingly.  -
+# "With selective image inversion": Set
+# `colors.webpage.darkmode.policy.images` to `smart`.  - "With selective
+# inversion of non-image elements": Set
+# `colors.webpage.darkmode.threshold.text` to 150 and
+# `colors.webpage.darkmode.threshold.background` to 205.  - "With
+# selective inversion of everything": Combines the two variants   above.
+# Type: Bool
+#c.colors.webpage.darkmode.enabled = True
+
+# Bindings for normal mode
+config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
+
+#Uses youtube-dl to download content from site... Got this one from Derek Taylor's config on gitlab'
+config.bind('<Ctrl+shift+z>', 'hint links spawn st -e youtube-dl {hint-url}')
