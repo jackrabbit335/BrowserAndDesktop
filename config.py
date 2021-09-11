@@ -205,9 +205,9 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Enable WebGL.
 # Type: Bool
-c.content.webgl = True
+#c.content.webgl = False
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
 # Type: Directory
-c.downloads.location.directory = '/home/sirius/Downloads/'
+#c.downloads.location.directory = '/home/$USER/Downloads/'
