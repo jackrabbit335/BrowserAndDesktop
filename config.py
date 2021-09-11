@@ -35,6 +35,10 @@ c.content.canvas_reading = False
 #   - never: Don't accept cookies at all.
 c.content.cookies.accept = 'no-3rdparty'
 
+# Try to pre-fetch DNS entries to speed up browsing.
+# Type: Bool
+#c.content.dns_prefetch = False
+
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
 # including IndexedDB, DOM storage, filesystem API, service workers, and
